@@ -15,6 +15,7 @@ class AppColor
   static final Color colorLogInScreenFieldTextSelected = hexToColor("#90deea");
   static final Color colorSplashScreenProvider = hexToColor("#19a0b4");
   static final Color colorSplashScreen3rdCircle = hexToColor("#b3cbdc");
+  static final Color colorResetPasswordResend = hexToColor("#454f63");
 
 
   static Color hexToColor(String code) {

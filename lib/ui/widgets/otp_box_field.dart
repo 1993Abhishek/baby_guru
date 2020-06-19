@@ -1,3 +1,4 @@
+import 'package:babyguru/ui/helper/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:babyguru/ui/util/app_dimen.dart';
 
@@ -21,22 +22,22 @@ class OTPBoxField extends StatefulWidget {
 
   const OTPBoxField(
       {Key key,
-        this.valueText,
-        this.hintText,
-        this.textStyle,
-        this.textInputAction = TextInputAction.done,
-        this.textInputType = TextInputType.text,
-        this.isObscureText = false,
-        this.textEditingController,
-        this.focusNode,
-        this.onChange,
-        this.onTap,
-        this.height,
-        this.width,
-        this.hasError = false,
-        this.isReadOnly = false,
-        this.borderRadius,
-        this.onSubmitted})
+      this.valueText,
+      this.hintText,
+      this.textStyle,
+      this.textInputAction = TextInputAction.done,
+      this.textInputType = TextInputType.text,
+      this.isObscureText = false,
+      this.textEditingController,
+      this.focusNode,
+      this.onChange,
+      this.onTap,
+      this.height,
+      this.width,
+      this.hasError = false,
+      this.isReadOnly = false,
+      this.borderRadius,
+      this.onSubmitted})
       : super(key: key);
 
   @override
@@ -68,20 +69,18 @@ class _OTPBoxField extends State<OTPBoxField> {
     return GestureDetector(
       onTap: () => _focusNode.requestFocus(),
       child: Container(
-        height: widget.height != null ? widget.height : hDimen(50),
-        width: widget.width != null ? widget.width : hDimen(50),
+        height: widget.height != null ? widget.height : vDimen(65),
+        width: widget.width != null ? widget.width : hDimen(65),
         decoration: BoxDecoration(
-            border: Border.all(
-                color: widget.hasError
-                    ? Colors.white
-                    : _focusNode.hasFocus
-                    ? Colors.white
-                    : Colors.white70,
-                width: _focusNode.hasFocus ? 2 : 1.8),
-            borderRadius: BorderRadius.circular(widget.borderRadius != null
-                ? widget.borderRadius
-                : hDimen(10)),
-            color: Colors.white),
+          border: Border.all(
+              color: widget.hasError
+                  ? Colors.white
+                  : _focusNode.hasFocus ? Colors.white70 : Colors.white70,
+              width: _focusNode.hasFocus ? 2 : 0.4),
+          borderRadius: BorderRadius.circular(
+              widget.borderRadius != null ? widget.borderRadius : hDimen(10)),
+          color: AppColor.colorLogInScreenFields,
+        ),
         child: Center(
           child: TextField(
               textAlign: TextAlign.center,
@@ -94,10 +93,10 @@ class _OTPBoxField extends State<OTPBoxField> {
               style: widget.textStyle != null
                   ? widget.textStyle
                   : TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontSize: hDimen(22),
-              ),
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: hDimen(22),
+                    ),
               onSubmitted: (value) {
                 if (widget.onSubmitted != null) widget.onSubmitted(value);
               },
@@ -115,9 +114,7 @@ class _OTPBoxField extends State<OTPBoxField> {
                 contentPadding: EdgeInsets.all(0),
                 border: InputBorder.none,
                 hintText: widget.hintText == null ? "" : widget.hintText,
-                hintStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: hDimen(18)),
+                hintStyle: TextStyle(color: Colors.white, fontSize: hDimen(18)),
               )),
         ),
       ),

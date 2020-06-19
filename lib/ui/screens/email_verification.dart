@@ -15,7 +15,6 @@ class VerifyEmail extends StatefulWidget {
 }
 
 class _VerifyEmailState extends State<VerifyEmail> {
-
   TextEditingController _controllerBlock1,
       _controllerBlock2,
       _controllerBlock3,
@@ -26,10 +25,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
       _focusNodeBlock3,
       _focusNodeBlock4;
 
-  String otpText1 = "",
-      otpText2 = "",
-      otpText3 = "",
-      otpText4 = "";
+  String otpText1 = "", otpText2 = "", otpText3 = "", otpText4 = "";
 
   @override
   void initState() {
@@ -119,106 +115,108 @@ class _VerifyEmailState extends State<VerifyEmail> {
                 Padding(
                   padding: EdgeInsets.only(
                     left: hDimen(20),
-                    right: hDimen(10),
+                    right: hDimen(20),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text("Enter Code",style: TextStyle(color: Colors.white70,fontSize: hDimen(16)),),
-                      vSpacing((vDimen(10))),
-                      Row(crossAxisAlignment: CrossAxisAlignment.start,children: <Widget>[
-                        OTPBoxField(
-                          height: vDimen(65),
-                          width: vDimen(65),
-                          textEditingController: _controllerBlock1,
-                          focusNode: _focusNodeBlock1,
-                          textInputAction: TextInputAction.next,
-                          textInputType: TextInputType.number,
-                          hasError:otpText1.isEmpty,
-                          onChange: (value) {
-                            otpText1 = value;
-                            if (value
-                                .toString()
-                                .length > 0) {
-                              _focusNodeBlock1.unfocus();
-                              _focusNodeBlock2.requestFocus();
-                            }
-                          },
+                      Padding(
+                        padding: EdgeInsets.only(left:hDimen(10)),
+                        child: Text(
+                          "Enter Code",
+                          style: TextStyle(
+                              color: Colors.white70, fontSize: hDimen(16)),
                         ),
-                        hSpacing(10),
-                        OTPBoxField(
-                          textEditingController: _controllerBlock2,
-                          focusNode: _focusNodeBlock2,
-                          hasError:otpText2.isEmpty,
-                          onChange: (value) {
-                            otpText2 = value;
-                            if (value
-                                .toString()
-                                .length > 0) {
-                              _focusNodeBlock2.unfocus();
-                              _focusNodeBlock3.requestFocus();
-                            } else {
-                              _focusNodeBlock2.unfocus();
-                              _focusNodeBlock1.requestFocus();
-                            }
-                          },
-                          textInputAction: TextInputAction.next,
-                          textInputType: TextInputType.number,
-                        ),
-                        hSpacing(10),
-                        OTPBoxField(
-                          textEditingController: _controllerBlock3,
-                          focusNode: _focusNodeBlock3,
-                          textInputAction: TextInputAction.next,
-                          textInputType: TextInputType.number,
-                          hasError:otpText3.isEmpty,
-                          onChange: (value) {
-                            otpText3 = value;
-                            if (value
-                                .toString()
-                                .length > 0) {
-                              _focusNodeBlock3.unfocus();
-                              _focusNodeBlock4.requestFocus();
-                            } else {
-                              _focusNodeBlock3.unfocus();
-                              _focusNodeBlock2.requestFocus();
-                            }
-                          },
-                        ),
-                        hSpacing(10),
-                        OTPBoxField(
-                          textEditingController: _controllerBlock4,
-                          focusNode: _focusNodeBlock4,
-                          hasError: otpText4.isEmpty,
-                          textInputType: TextInputType.number,
-                          onChange: (value) {
-                            otpText4 = value;
-                            if (value
-                                .toString()
-                                .length > 0) {
-                              _focusNodeBlock4.unfocus();
+                      ),
+                      vSpacing((vDimen(15))),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          OTPBoxField(
+//                          height: vDimen(65),
+//                          width: vDimen(65),
+                            textEditingController: _controllerBlock1,
+                            focusNode: _focusNodeBlock1,
+                            textInputAction: TextInputAction.next,
+                            textInputType: TextInputType.number,
+                            hasError: otpText1.isEmpty,
+                            onChange: (value) {
+                              otpText1 = value;
+                              if (value.toString().length > 0) {
+                                _focusNodeBlock1.unfocus();
+                                _focusNodeBlock2.requestFocus();
+                              }
+                            },
+                          ),
+                          hSpacing(20),
+                          OTPBoxField(
+                            textEditingController: _controllerBlock2,
+                            focusNode: _focusNodeBlock2,
+                            hasError: otpText2.isEmpty,
+                            onChange: (value) {
+                              otpText2 = value;
+                              if (value.toString().length > 0) {
+                                _focusNodeBlock2.unfocus();
+                                _focusNodeBlock3.requestFocus();
+                              } else {
+                                _focusNodeBlock2.unfocus();
+                                _focusNodeBlock1.requestFocus();
+                              }
+                            },
+                            textInputAction: TextInputAction.next,
+                            textInputType: TextInputType.number,
+                          ),
+                          hSpacing(20),
+                          OTPBoxField(
+                            textEditingController: _controllerBlock3,
+                            focusNode: _focusNodeBlock3,
+                            textInputAction: TextInputAction.next,
+                            textInputType: TextInputType.number,
+                            hasError: otpText3.isEmpty,
+                            onChange: (value) {
+                              otpText3 = value;
+                              if (value.toString().length > 0) {
+                                _focusNodeBlock3.unfocus();
+                                _focusNodeBlock4.requestFocus();
+                              } else {
+                                _focusNodeBlock3.unfocus();
+                                _focusNodeBlock2.requestFocus();
+                              }
+                            },
+                          ),
+                          hSpacing(20),
+                          OTPBoxField(
+                            textEditingController: _controllerBlock4,
+                            focusNode: _focusNodeBlock4,
+                            hasError: otpText4.isEmpty,
+                            textInputType: TextInputType.number,
+                            onChange: (value) {
+                              otpText4 = value;
+                              if (value.toString().length > 0) {
+                                _focusNodeBlock4.unfocus();
 //                              _focusNodeBlock5.requestFocus();
-                            } else {
-                              _focusNodeBlock3.requestFocus();
-                            }
-                            /*Timer(Duration(milliseconds: 600), () =>
+                              } else {
+                                _focusNodeBlock3.requestFocus();
+                              }
+                              /*Timer(Duration(milliseconds: 600), () =>
                               Navigator.popUntil(context,
                                   ModalRoute.withName(Router.ROUTE_LOGIN)));*/
-                          },
-                        ),
-                      ],),
-                      vSpacing(20),
+                            },
+                          ),
+                        ],
+                      ),
+                      vSpacing(30),
                       Text(
                         "Resend Code",
                         style: TextStyle(
-                          fontSize: hDimen(15),
-                          color: Colors.black,
+                          fontSize: hDimen(16),
+                          color: AppColor.colorResetPasswordResend,
                           decoration: TextDecoration.underline,
                         ),
                       ),
-                      vSpacing(35),
+                      vSpacing(100),
                       CustomButton(
-                        buttonText: "Reset Password",
+                        buttonText: "Done",
                         onClick: () {
                           Navigator.of(context)
                               .pushReplacementNamed(Router.ROUTE_HOME);
