@@ -219,7 +219,7 @@ class _VerifyEmailState extends State<VerifyEmail> {
                         buttonText: "Done",
                         onClick: () {
                           Navigator.of(context)
-                              .pushReplacementNamed(Router.ROUTE_HOME);
+                              .pushNamed(Router.ROUTE_UPDATE_PASSWORD);
                         },
                       ),
                     ],

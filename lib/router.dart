@@ -9,6 +9,7 @@ import 'package:babyguru/ui/screens/sign_up_screen2.dart';
 import 'package:babyguru/ui/screens/sign_up_screen3.dart';
 import 'package:babyguru/ui/screens/splash_screen.dart';
 import 'package:babyguru/ui/screens/splash_screen2.dart';
+import 'package:babyguru/ui/screens/update_password_screen.dart';
 import 'package:flutter/material.dart';
 
 class Router
@@ -23,6 +24,7 @@ class Router
   static const String ROUTE_LOGIN_PROVIDER = "login-provider";
   static const String ROUTE_FORGOT_PASSWORD = "forgot-password";
   static const String ROUTE_EMAIL_VERIFICATION = "email-verification";
+  static const String ROUTE_UPDATE_PASSWORD = "update-password";
 
   static String ROUTE_CURRENT = "/";
 
@@ -49,6 +51,9 @@ class Router
         break;
       case ROUTE_EMAIL_VERIFICATION:
         currentWidget = VerifyEmail();
+        break;
+      case ROUTE_UPDATE_PASSWORD:
+        currentWidget = UpdatePassword();
         break;
 
       case ROUTE_SIGNUP_1st:
