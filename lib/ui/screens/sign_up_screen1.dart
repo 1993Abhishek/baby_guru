@@ -16,14 +16,15 @@ class SignUpPage1st extends StatefulWidget {
 class _SignUpPage1stState extends State<SignUpPage1st> {
   FocusNode _nodeLastName, _nodeFirstName, _nodeGender;
 
-  TextEditingController _controllerFirstName, _controllerLastName,
+  TextEditingController _controllerFirstName,
+      _controllerLastName,
       _controllerGender;
 
   @override
   void initState() {
     _nodeFirstName = FocusNode();
     _nodeLastName = FocusNode();
-    _nodeGender= FocusNode();
+    _nodeGender = FocusNode();
 
     _controllerFirstName = TextEditingController();
     _controllerLastName = TextEditingController();
@@ -32,9 +33,33 @@ class _SignUpPage1stState extends State<SignUpPage1st> {
     super.initState();
   }
 
-  String dropdownValue='Male';
-  Widget dropDown()
-  {
+  String dropdownValue = 'Male';
+
+  List<DropdownMenuItem<String>> _list = [];
+
+  void loadData() {
+    _list.add(
+      DropdownMenuItem(
+        child: Text("Item 1"),
+        value: " val-1",
+      ),
+    );
+    _list.add(
+      DropdownMenuItem(
+        child: Text("Item 2"),
+        value: " val-2",
+      ),
+    );
+    _list.add(
+      DropdownMenuItem(
+        child: Text("Item 3"),
+        value: " val-3",
+      ),
+    );
+
+  }
+
+  Widget dropDown() {
     return DropdownButton<String>(
       value: dropdownValue,
       icon: Icon(Icons.arrow_downward),
@@ -111,7 +136,7 @@ class _SignUpPage1stState extends State<SignUpPage1st> {
                         ),
                       ),
                     ),
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).pop();
                     },
                   ),
@@ -174,12 +199,10 @@ class _SignUpPage1stState extends State<SignUpPage1st> {
                           },
                         ),
                         vSpacing(25),
-
                         CustomTextField(
                           selectedDate: dropdownValue,
                           isDateField: true,
-                          onTab: ()
-                          {
+                          onTab: () {
                             print("On Tab");
                             dropDown();
                           },
@@ -205,32 +228,31 @@ class _SignUpPage1stState extends State<SignUpPage1st> {
                         CustomButton(
                           buttonText: "Next",
                           onClick: () {
-                            Navigator.of(context).pushNamed(Router.ROUTE_SIGNUP_2nd);
+                            Navigator.of(context)
+                                .pushNamed(Router.ROUTE_SIGNUP_2nd);
                           },
                         ),
                         vSpacing(20),
                         Center(
                             child: RichText(
-                              text: TextSpan(
-                                  text: " I'm already a member, ",
+                          text: TextSpan(
+                              text: " I'm already a member, ",
+                              style: TextStyle(
+                                fontSize: vDimen(12),
+                                color: Colors.white70,
+                              ),
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: "Sign in",
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {},
                                   style: TextStyle(
-                                    fontSize: vDimen(12),
+                                    fontSize: vDimen(14),
                                     color: Colors.white70,
                                   ),
-                                  children: <TextSpan>[
-                                    TextSpan(
-                                      text: "Sign in",
-                                      recognizer: TapGestureRecognizer()..onTap = ()
-                                      {
-
-                                      },
-                                      style: TextStyle(
-                                        fontSize: vDimen(14),
-                                        color: Colors.white70,
-                                      ),
-                                    ),
-                                  ]),
-                            ))
+                                ),
+                              ]),
+                        ))
                       ],
                     ),
                   )
