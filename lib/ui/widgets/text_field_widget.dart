@@ -67,14 +67,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
         GestureDetector(
           onTap: () {
             widget.isDateField ? widget.onTab() : false;
+            setState(() {
+              selectedField=true;
+            });
           },
           child: Card(
-            color: selectedField
+            color:widget.backgroundColor==null ? selectedField
                 ? AppColor.colorLogInScreenFieldTextSelected
-                : widget.backgroundColor,
+                : AppColor.colorLogInScreenFieldTextNotSelected
+            : widget.backgroundColor,
 //          elevation: ,a
             shape: RoundedRectangleBorder(
-              side: BorderSide(color: Colors.white60, width: 1),
+              side:selectedField ?  BorderSide(color: Colors.white60, width: 1) : BorderSide(color: Colors.transparent,width:0, ),
               borderRadius: BorderRadius.circular(hDimen(7)),
             ),
             child: Padding(
@@ -130,9 +134,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               counterText: "",
                               hintStyle: widget.textStyle,
                     hintText:widget.hintText==null ? " " : widget.hintText,
-                              fillColor: selectedField
+                              fillColor:widget.backgroundColor==null ?  selectedField
                                   ? AppColor.colorLogInScreenFieldTextSelected
-                                  : widget.backgroundColor,
+                                  : AppColor.colorLogInScreenFieldTextNotSelected
+                              :widget.backgroundColor,
                               enabledBorder: UnderlineInputBorder(
                                 borderSide:
                                     BorderSide(color: Colors.transparent),

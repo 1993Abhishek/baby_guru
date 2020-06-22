@@ -12,10 +12,12 @@ class AppColor
   static final Color colorLogInScreenBack = hexToColor("#3acce1");
   static final Color colorLogInScreenFields = hexToColor("#53d1e4");
   static final Color colorLogInScreenFieldText = hexToColor("#53d1e4");
-  static final Color colorLogInScreenFieldTextSelected = hexToColor("#90deea");
+  static final Color colorLogInScreenFieldTextSelected = hexToColor("#70d7e5");
+  static final Color colorLogInScreenFieldTextNotSelected = hexToColor("#90deea");
   static final Color colorSplashScreenProvider = hexToColor("#19a0b4");
   static final Color colorSplashScreen3rdCircle = hexToColor("#b3cbdc");
   static final Color colorResetPasswordResend = hexToColor("#454f63");
+  static final Color colorChildDetailsFields = hexToColor("#b2e6ef");
 
 
   static Color hexToColor(String code) {

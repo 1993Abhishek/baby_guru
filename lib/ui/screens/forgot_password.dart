@@ -114,7 +114,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           image: " ",
                           maxLength: 50,
                           focusNode: _nodeUserEmail,
-                          backgroundColor: AppColor.colorLogInScreenFields,
                           hintText: "Email",
                           inputAction: TextInputAction.next,
                           obSecure: false,
